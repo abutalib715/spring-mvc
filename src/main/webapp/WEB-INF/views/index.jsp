@@ -1,4 +1,4 @@
-<%--
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: HP
   Date: 9/18/2024
@@ -13,7 +13,23 @@
 <body>
 
 <h1>Home Page</h1>
-<p>From View Resolver</p>
+<%
+    String name = (String) request.getAttribute("name");
+    Integer nid = (Integer) request.getAttribute("nid");
+    List<String> friends = (List<String>) request.getAttribute("friends");
+%>
+<h3>Your name is <%= name %>
+</h3>
+<h3>Your NID is <%= nid %>
+</h3>
+<h3>Your Friends are: </h3>
+<%
+    for (String friend : friends) {
+%>
+<p><%= friend %></p>
+<%
+    }
+%>
 
 </body>
 </html>
