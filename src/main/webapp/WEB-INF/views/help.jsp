@@ -10,6 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--Enable JSP Expression Language--%>
 <%@page isELIgnored="false" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Help Page</title>
@@ -37,6 +38,12 @@
 <%--    <%= time.toString() %>--%>
     ${time}
 </h3>
+
+<%--USING JSTL TO RENDER VIEW--%>
+<c:forEach var="item" items="${friends}">
+<%--    <h4>${item}</h4>--%>
+    <c:out value="${item}"></c:out>
+</c:forEach>
 
 </body>
 </html>
