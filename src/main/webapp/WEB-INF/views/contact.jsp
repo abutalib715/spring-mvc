@@ -23,18 +23,18 @@
 
 <div class="container">
     <h3 class="text-center mt-5">Registration Form</h3>
-    <form action="" method="post">
+    <form action="submit-form" method="post">
         <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
         <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" aria-describedby="username">
+            <input type="text" name="username" class="form-control" id="username" aria-describedby="username">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <input type="password" name="password" class="form-control" id="exampleInputPassword1">
         </div>
         <div class="text-center">
             <button type="submit" class="btn btn-primary">Submit</button>

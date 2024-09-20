@@ -1,13 +1,10 @@
 package controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
-
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ContactController {
@@ -18,22 +15,16 @@ public class ContactController {
     }
 
     @RequestMapping(value = "/submit-form", method = RequestMethod.POST)
-    public ModelAndView submitForm() {
-        ModelAndView modelAndView = new ModelAndView();
+    public String submitForm(
+            @RequestParam("email") String email,
+            @RequestParam("username") String username,
+            @RequestParam("password") String password,
+            Model model) {
 
-        modelAndView.addObject("name", "Jakir");
-        modelAndView.addObject("roll", 776);
-        LocalDateTime now = LocalDateTime.now();
-        modelAndView.addObject("time", now);
+        model.addAttribute("email", email);
+        model.addAttribute("username", username);
+        model.addAttribute("password", password);
 
-        List<String> friends = new ArrayList<>();
-        friends.add("AKash");
-        friends.add("Batash");
-        friends.add("Sagor");
-        modelAndView.addObject("friends", friends);
-
-        modelAndView.setViewName("help");
-
-        return modelAndView;
+        return "success";
     }
 }
