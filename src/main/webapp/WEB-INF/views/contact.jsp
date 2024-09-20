@@ -22,7 +22,10 @@
 <body>
 
 <div class="container">
-    <h3 class="text-center mt-5">Registration Form</h3>
+    <div class="text-center mt-5">
+        <h3>${pageTitle}</h3>
+        <p>${pageDesc}</p>
+    </div>
     <form action="submit-form" method="post">
         <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
