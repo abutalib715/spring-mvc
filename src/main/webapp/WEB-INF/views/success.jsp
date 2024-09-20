@@ -10,13 +10,13 @@
 <h1>Form Submit Success</h1>
 
 <h3>Your name is
-    ${email}
+    ${user.email}
 </h3>
 <h3>Your username is
-    ${username}
+    ${user.username}
 </h3>
 <h3>Password is:
-    ${password}
+    ${user.password}
 </h3>
 
 </body>
