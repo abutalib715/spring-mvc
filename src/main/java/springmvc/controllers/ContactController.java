@@ -1,19 +1,24 @@
-package controllers;
+package springmvc.controllers;
 
-import model.User;
+import springmvc.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import springmvc.service.UserService;
 
 @Controller
 public class ContactController {
 
+    @Autowired
+    UserService userService;
+
     @ModelAttribute
-    public void commonDataForModel(Model model){
-        model.addAttribute("pageTitle","Registration Form");
-        model.addAttribute("pageDesc","Test Description");
+    public void commonDataForModel(Model model) {
+        model.addAttribute("pageTitle", "Registration Form");
+        model.addAttribute("pageDesc", "Test Description");
     }
 
     @RequestMapping("/show-form")
@@ -26,11 +31,11 @@ public class ContactController {
 //            @RequestParam("email") String email,
 //            @RequestParam("username") String username,
 //            @RequestParam("password") String password,
-//            Model model) {
+//            Model springmvc.model) {
 //
-//        model.addAttribute("email", email);
-//        model.addAttribute("username", username);
-//        model.addAttribute("password", password);
+//        springmvc.model.addAttribute("email", email);
+//        springmvc.model.addAttribute("username", username);
+//        springmvc.model.addAttribute("password", password);
 //
 //        return "success";
 //    }
@@ -38,6 +43,8 @@ public class ContactController {
     @RequestMapping(value = "/submit-form", method = RequestMethod.POST)
     public String submitForm(@ModelAttribute User user) {
         System.out.println("FROM MODEL ATTR");
+
+        userService.createUser(user);
         return "success";
     }
 }
