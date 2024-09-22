@@ -1,12 +1,13 @@
 package springmvc.controllers;
 
-import springmvc.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import springmvc.model.User;
 import springmvc.service.UserService;
 
 @Controller
@@ -41,8 +42,11 @@ public class ContactController {
 //    }
 
     @RequestMapping(value = "/submit-form", method = RequestMethod.POST)
-    public String submitForm(@ModelAttribute User user) {
-        System.out.println("FROM MODEL ATTR");
+    public String submitForm(@ModelAttribute User user, BindingResult result) {
+
+        if (result.hasErrors()) {
+            return "contact";
+        }
 
         userService.createUser(user);
         return "success";

@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%---- form is the tag name prefix that is used for the tags from this library.--%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -25,6 +27,9 @@
     <div class="text-center mt-5">
         <h3>${pageTitle}</h3>
         <p>${pageDesc}</p>
+        <div class="alert alert-danger" role="alert">
+            <form:errors path="user.*"/>
+        </div>
     </div>
     <form action="submit-form" method="post">
         <div class="form-group">
