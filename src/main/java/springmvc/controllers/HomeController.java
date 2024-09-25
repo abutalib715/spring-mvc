@@ -59,11 +59,11 @@ public class HomeController {
 //        return "about";
     }
 
-    @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
-    @ExceptionHandler(value = Exception.class)
-//    @ExceptionHandler({NullPointerException.class, NumberFormatException.class})
-    public String exceptionHandler(Model model) {
-        model.addAttribute("msg", "Exception occurred, custom msg");
-        return "exception_page";
-    }
+//    @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
+//    @ExceptionHandler(value = Exception.class)
+////    @ExceptionHandler({NullPointerException.class, NumberFormatException.class})
+//    public String exceptionHandler(Model model) {
+//        model.addAttribute("msg", "Exception occurred, custom msg");
+//        return "exception_page";
+//    }
 }
