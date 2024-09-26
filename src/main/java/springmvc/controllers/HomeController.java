@@ -1,11 +1,9 @@
 package springmvc.controllers;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDateTime;
@@ -66,4 +64,16 @@ public class HomeController {
 //        model.addAttribute("msg", "Exception occurred, custom msg");
 //        return "exception_page";
 //    }
+
+    @RequestMapping("/welcome")
+    public String welcome() {
+        return "welcome-form";
+    }
+
+    @RequestMapping("/welcome-submit")
+    public String welcomeSubmit(Model model, @RequestParam String name) {
+        model.addAttribute("name", name);
+        return "welcome-success";
+    }
+
 }

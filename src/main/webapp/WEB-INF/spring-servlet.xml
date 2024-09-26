@@ -19,6 +19,15 @@
     <mvc:resources mapping="/resources/**" location="WEB-INF/resources"/>
     <mvc:annotation-driven/>
 
+    <!--    INTERCEPTOR CONFIG-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/welcome-submit"/>
+            <bean class="springmvc.util.MyInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+
     <!--    VIEW RESOLVER-->
     <bean name="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>
